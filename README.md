@@ -1,5 +1,3 @@
 # MTGDECKS-Magic-the-Gathering-decks-database
 
-bla bla bla 
-
-bla2 bla2 bla2 3
+novi branch erik
