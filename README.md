@@ -17,4 +17,5 @@
 ManaVault so leta 2024 ustanovili trije študentje in strastni MTG igralci, ki so se naveličali iskanja kart po različnih trgovinah in forumih. Projekt se je začel kot preprosta tabela deckov za lokalni klub v Mariboru. Zaradi velikega zanimanja so ga razvili v spletno stran z lastno ponudbo deckov, forumom in blogom. Danes sodelujemo z več slovenskimi trgovinami s kartami in organiziramo mesečne lokalne turnirje.
 
 ### Trgovina
+Lahko kupite 
 
