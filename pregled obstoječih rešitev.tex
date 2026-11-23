@@ -1,0 +1,192 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+
+\renewcommand{\figurename}{Slika}
+\renewcommand{\contentsname}{Kazalo}
+\renewcommand{\refname}{Viri}
+\setlist{itemsep=2pt,topsep=4pt}
+
+\title{ManaVault: pregled obstoječih rešitev}
+\author{Davor Orehovec, Ian Pratnemer, Erik Ščernjavič Zadravec}
+\date{23.~november 2026}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  {\Huge\bfseries ManaVault\par}
+  \vspace{0.6cm}
+  {\Large Pregled obstoječih rešitev\par}
+  \vspace{2.5cm}
+  {\large Davor Orehovec\par
+  Ian Pratnemer\par
+  Erik Ščernjavič Zadravec\par}
+  \vfill
+  {\large 23.~november 2026\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Uvod}
+ManaVault je spletna stran za slovensko skupnost igralcev zbirateljske kartične igre Magic: The Gathering (MTG). Ponuja katalog vnaprej sestavljenih deckov (kupčkov kart), forum, blog in pregled lokalnih turnirjev ter trgovin s kartami. Projekt je nastal iz preproste tabele deckov za lokalni klub v Mariboru.
+
+Problem, ki ga rešujemo, je razpršenost informacij in ponudbe. Igralec, ki želi sestaviti ali kupiti deck, mora karte iskati po več tujih tržnicah, kjer so jezik, valuta, poštnina in postopki prilagojeni tujim trgom, za pogovor in lokalne dogodke pa uporablja še forume in družbena omrežja. Začetnik si težko izbere ustrezen deck, izkušen igralec pa težko preveri, koliko bi stala izbrana zbirka kart. Cilj projekta je združiti nakup deckov, skupnost in lokalne dogodke na enem mestu, v slovenščini in z mislijo na slovenske uporabnike.
+
+Za pregled smo izbrali tri uveljavljene rešitve, ki so našemu projektu najbolj sorodne: Cardmarket~\cite{cm}, Card Kingdom~\cite{ck} in TCGplayer~\cite{tcg}. Za vsako navajamo kratek opis, ključne funkcionalnosti ter prednosti in slabosti.
+
+\section{Obstoječe rešitve}
+
+\subsection{Cardmarket}
+Cardmarket je nemška tržnica, ki posameznim prodajalcem in trgovinam omogoča prodajo kart MTG in drugih zbirateljskih iger na evropskem trgu~\cite{cm}. Platforma temelji na standardiziranem katalogu kart, v katerem ima vsaka karta svojo stran s ponudbami različnih prodajalcev. Prodajalci tekmujejo predvsem s ceno, jezikom in ohranjenostjo kart.
+
+\paragraph{Ključne funkcionalnosti.}
+\begin{itemize}
+  \item \textbf{Standardiziran katalog in primerjava ponudb:} vsaka različica karte iz določene izdaje ima seznam aktivnih ponudb.
+  \item \textbf{Ocenjevanje ohranjenosti:} enotna lestvica stanj kart omogoča primerjavo kakovosti med prodajalci.
+  \item \textbf{Seznami želja (Wants):} uporabnik lahko ustvari do 100 seznamov z do 150 vnosi na seznam, vanje pa lahko prilepi tudi seznam kart decka~\cite{cm}.
+  \item \textbf{Shopping Wizard:} za izbrani seznam želja poišče kombinacijo prodajalcev glede na izbrano strategijo, in sicer nižjo ceno ali manj pošiljk~\cite{cm}.
+  \item \textbf{Orodja za profesionalne prodajalce} za upravljanje zaloge in ponudb.
+\end{itemize}
+
+\paragraph{Prednosti.}
+Zelo velik izbor ponudb in konkurenčne cene. Seznami želja in Shopping Wizard močno olajšajo nakup večjega števila kart. Standardiziran katalog omogoča hitro primerjavo.
+
+\paragraph{Slabosti.}
+Rešitev je splošna in ni prilagojena slovenskemu uporabniku. Ni ponudbe vnaprej pripravljenih deckov za začetnike, skupnostne vsebine so omejene, pošiljke pa so pogosto razdeljene med več prodajalcev, zato kupec plača več poštnin. Shopping Wizard je zahtevno orodje, ki je za nove uporabnike lahko zmedeno~\cite{cm}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{crdmrkt1.png}
+  \caption{Cardmarket: predstavitev orodja Shopping Wizard za optimizacijo nakupa (posnetek zaslona, vir: \cite{cm}).}
+  \label{fig:cardmarket}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{crdmrkt2.png}
+  \caption{Cardmarket: vstopna stran kataloga s pregledom trendov in najbolj prodajanih kart (posnetek zaslona, vir: \cite{cm}).}
+  \label{fig:cardmarket2}
+\end{figure}
+
+\subsection{Card Kingdom}
+Card Kingdom je specializirana spletna trgovina za MTG iz zvezne države Washington v ZDA. Za razliko od tržnic kupce ne povezuje med seboj, temveč karte sama odkupuje, ocenjuje, skladišči in prodaja~\cite{ck}.
+
+\paragraph{Ključne funkcionalnosti.}
+\begin{itemize}
+  \item \textbf{Centralizirana zaloga:} naročilo prispe iz enega skladišča.
+  \item \textbf{Odkup kart (Buylist):} uporabniki prodajo karte trgovini za gotovino ali dobropis. Pri plačilu z dobropisom je ponujen 30-odstotni bonus~\cite{ck}.
+  \item \textbf{Strogo ocenjevanje ohranjenosti:} lestvica NM, EX, VG in G. Karte, ocenjene slabše od NM, so odkupljene po odstotku cene za NM~\cite{ck}.
+  \item \textbf{Uvoz seznama kart:} lepljenje seznama decka in samodejno dodajanje kart v košarico.
+  \item \textbf{Lastni izdelki in vsebine:} vnaprej pripravljeni začetniški kupčki ter uredniški blog s strategijami in novicami.
+\end{itemize}
+
+\paragraph{Prednosti.}
+Enotna pošiljka, dosledna kakovost kart in preprost postopek nakupa. Ponuja začetniške decke in vsebine za učenje igre.
+
+\paragraph{Slabosti.}
+Zaloga je omejena na ponudbo ene trgovine in cene so običajno višje kot na tržnicah. Trgovina deluje v ZDA, zato so dostava v Evropo in carina drag in počasen postopek. Ni skupnosti, forumov ali lokalnih dogodkov. Uporabniki se pri tretjih straneh pritožujejo tudi nad nedoslednim ocenjevanjem kart.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{crdkngdm1.png}
+  \caption{Card Kingdom: postopek odkupa kart prek sistema Buylist (posnetek zaslona, vir: \cite{ck}).}
+  \label{fig:cardkingdom}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{crdkngdm2.png}
+  \caption{Card Kingdom: vstopna stran spletne trgovine in navigacija po kategorijah (posnetek zaslona, vir: \cite{ck}).}
+  \label{fig:cardkingdom2}
+\end{figure}
+
+\subsection{TCGplayer}
+TCGplayer je največja severnoameriška tržnica za zbirateljske kartične igre, ki jo je prevzel eBay. Združuje neodvisne prodajalce v enoten katalog za MTG in druge igre~\cite{tcg}. Posebnost je hibridni model, v katerem lahko kupec izbira med ponudbami posameznih prodajalcev in storitvijo TCGplayer Direct.
+
+\paragraph{Ključne funkcionalnosti.}
+\begin{itemize}
+  \item \textbf{TCGplayer Direct:} naročilo je združeno v čim manj paketov, karte pa preveri center za overjanje~\cite{tcg}.
+  \item \textbf{Cart Optimizer:} samodejno preoblikuje košarico in ponudi tri različice (Direct, Verified Sellers, Any Seller)~\cite{tcg}.
+  \item \textbf{Market Price:} cena, izračunana iz nedavnih prodaj, ter kazalnik nestanovitnosti cene~\cite{tcg}.
+  \item \textbf{Zaščita kupcev (Safeguard):} zaščita pri težavah z naročilom~\cite{tcg}.
+  \item \textbf{Orodja za prodajalce:} npr.\ MassPrice za množično prilagajanje cen~\cite{tcg}.
+\end{itemize}
+
+\paragraph{Prednosti.}
+Pregledni podatki o cenah, učinkovit optimizator košarice in dobra zaščita kupcev. Možnost nakupa v enem paketu zmanjša stroške pošiljanja.
+
+\paragraph{Slabosti.}
+Storitev je usmerjena v ZDA. Cart Optimizer deluje samo za posamezne karte (singles)~\cite{tcg}, ne pa za cele decke. Skupnostnih funkcij (forum, blog, dogodki) ni, veliko možnosti pa je lahko za začetnika zahtevnih.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{tcgply.png}
+  \caption{TCGplayer: predstavitev delovanja orodja Cart Optimizer s tremi možnostmi košarice (posnetek zaslona, vir: \cite{tcg}).}
+  \label{fig:tcgplayer}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{tcgplaay2.png}
+  \caption{TCGplayer: vstopna stran tržnice s pregledom različnih kartičnih iger in uredniških vsebin (posnetek zaslona, vir: \cite{tcg}).}
+  \label{fig:tcgplayer2}
+\end{figure}
+
+\subsection{Primerjava}
+\begin{table}[H]
+  \centering
+  \small
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+    & Cardmarket & Card Kingdom & TCGplayer \\
+    \midrule
+    Model                      & tržnica & trgovina & tržnica + Direct \\
+    Seznam želja / uvoz decka  & da & da & da (Mass Entry) \\
+    Optimizacija košarice      & Shopping Wizard & ne & Cart Optimizer \\
+    Ocenjevanje stanja         & da & da & da \\
+    Vnaprej pripravljeni decki & ne & da & ne \\
+    Skupnost (forum, blog)     & omejeno & blog & ne \\
+    Slovenščina, lokalni fokus & ne & ne & ne \\
+    \bottomrule
+  \end{tabular}
+  \caption{Primerjava obstoječih rešitev (ocena avtorjev na podlagi pregleda).}
+  \label{tab:primerjava}
+\end{table}
+
+\section{Zaključek}
+Od obstoječih rešitev bomo prevzeli to, kar se je izkazalo za uporabno. Od Cardmarketa prevzamemo sezname želja in uvoz seznama kart. Od Card Kingdoma prevzamemo ponudbo vnaprej pripravljenih deckov, enotno pošiljko in blog z vsebinami za učenje. Od TCGplayerja prevzamemo jasno in pregledno prikazano ceno ter preprost pregled košarice z jasnim zaščitnim sistemom za kupce.
+
+Naša rešitev bo drugačna v štirih točkah. Prvič, v celoti bo v slovenščini in prilagojena slovenskemu trgu (plačilo v evrih, domača dostava, osebni prevzem v Mariboru). Drugič, v središču bodo celotni decki, ne le posamezne karte, uporabnik pa bo za vsak deck takoj videl sestavo in skupno ceno. Tretjič, na enem mestu bo združila nakup, forum, blog in lokalne turnirje, česar nobena od obravnavanih rešitev ne ponuja. Četrtič, namenjena bo tako začetnikom kot izkušenim igralcem z jasnim opisom vsakega decka. Ob tem se zavedamo, da bo naš katalog manjši od tujih tržnic, zato bomo zaradi preglednosti in lokalne skupnosti sprejeli manj izbire.
+
+\begin{thebibliography}{9}\small
+
+\bibitem{cm} Cardmarket. \url{https://www.cardmarket.com} (dostop: 23.~11.~2026).
+\bibitem{ck} Card Kingdom. \url{https://www.cardkingdom.com} (dostop: 23.~11.~2026).
+\bibitem{tcg} TCGplayer. \url{https://www.tcgplayer.com} (dostop: 23.~11.~2026).
+
+\end{thebibliography}
+
+\section*{Slikovni viri}
+\begin{itemize}\small
+  \item \textbf{Slika~\ref{fig:cardmarket}:} Cardmarket -- Shopping Wizard. \url{https://help.cardmarket.com/en/ShoppingWizard} (dostop: 23.~11.~2026).
+  \item \textbf{Slika~\ref{fig:cardmarket2}:} Cardmarket -- Magic: The Gathering. \url{https://www.cardmarket.com/en/Magic} (dostop: 23.~11.~2026).
+  \item \textbf{Slika~\ref{fig:cardkingdom}:} Card Kingdom -- Postopek prodaje kart (Buylist). \url{https://cardkingdom.com/purchasing/how_to_sell} (dostop: 23.~11.~2026).
+  \item \textbf{Slika~\ref{fig:cardkingdom2}:} Card Kingdom -- Vstopna stran. \url{https://www.cardkingdom.com} (dostop: 23.~11.~2026).
+  \item \textbf{Slika~\ref{fig:tcgplayer}:} TCGplayer -- Cart Optimizer. \url{https://help.tcgplayer.com/hc/en-us/articles/201769673-Cart-Optimizer} (dostop: 23.~11.~2026).
+  \item \textbf{Slika~\ref{fig:tcgplayer2}:} TCGplayer -- Vstopna stran. \url{https://www.tcgplayer.com} (dostop: 23.~11.~2026).
+\end{itemize}
+
+\end{document}
